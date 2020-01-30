@@ -4,7 +4,7 @@ from yolo3.override import mobilenet_v2
 from yolo3.darknet import darknet_body
 from yolo3.efficientnet import EfficientNetB4
 from yolo3.utils import get_classes, ModelFactory
-from yolo3.enum import BACKBONE
+from yolo3.enums import BACKBONE
 import os
 import datetime
 
