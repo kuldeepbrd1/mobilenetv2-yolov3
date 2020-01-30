@@ -15,7 +15,11 @@ import os
 from typing import List, Tuple
 from tensorflow_serving.apis import prediction_log_pb2, predict_pb2
 from functools import partial
-from tensorflow.python.compiler.tensorrt import trt_convert as trt
+try:
+    from tensorflow.python.compiler.tensorrt import trt_convert_windows as trt
+except:
+    from tensorflow.python.compiler.tensorrt import trt_convert as trt
+    
 
 tf.keras.backend.set_learning_phase(0)
 
