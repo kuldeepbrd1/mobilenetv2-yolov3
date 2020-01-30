@@ -73,6 +73,10 @@ Example: <br>
 ``` bash
 python main.py --mode=TRAIN --train_dataset_glob=<your dataset glob> --epochs=50 --epochs=50 --mode=TRAIN
 ```
+or
+``` bash
+python main.py --mode=TRAIN --train_dataset=<your train dataset glob> --val_dataset=<your val dataset glob> --test_dataset=<your test dataset glob> --classes_path= <path to classes txt> --epochs=50 --epochs=50 --mode=TRAIN
+```
 
 ### Predict:
 ``` bash
