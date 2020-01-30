@@ -14,7 +14,7 @@ def _bytes_feature(value):
   return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
 
 def convert_to_tfrecord(xml, record_writer):
-    name, _ = xml.split('\\')[-1].split('.')
+    name, _ = xml.split('/')[-1].split('.')
     root = ET.parse(xml.encode('utf-8')).getroot()
     xmins = []
     ymins = []
@@ -22,7 +22,7 @@ def convert_to_tfrecord(xml, record_writer):
     ymaxs = []
     labels = []
     for obj in root.iter('object'):
-        difficult = obj.find('difficult').text
+        difficult = 0 #obj.find('difficult').text
         cls = obj.find('name').text
         if cls not in classes or int(difficult) == 1:
             continue
@@ -65,7 +65,7 @@ for clazz in classes:
 
     for file in tf.io.gfile.listdir(os.path.join('/content','drive','My Drive','KPEC','speed','detection_annotations')):
         
-        xmls_path = os.path.join('speed','detection_annotations','xml')
+        xmls_path = os.path.join('/content','drive','My Drive','KPEC','speed','detection_annotations','xml')
         xmls = tf.io.gfile.glob(os.path.join(xmls_path,'img******.xml'))
         np.random.shuffle(xmls)
         for idx,xml in enumerate(xmls):
