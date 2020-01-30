@@ -8,7 +8,7 @@ print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('
 start_time = time.time()
 
 classes = ["Tango"]
-tfrecords_size = 12001
+tfrecords_size = 1000
 
 def _bytes_feature(value):
   return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
